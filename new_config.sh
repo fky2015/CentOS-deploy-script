@@ -5,8 +5,11 @@
 # install ---
 
 # 检查是否为root
-if [ $USER -t root ]
-return 
+if [ $USER != root ]
+then
+		echo "you are not root"
+		exit 2
+fi
 
 
 cat > /etc/yum.repos.d/CentOS-Base.repo <<EOF
