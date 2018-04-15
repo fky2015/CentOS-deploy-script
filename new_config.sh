@@ -5,7 +5,7 @@
 # install ---
 
 # 检查是否为root
-if [ $USER != root ]
+if [ ${USER}h != rooth ]
 then
 		echo "you are not root"
 		exit 2
