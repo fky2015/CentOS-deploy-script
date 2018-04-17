@@ -46,9 +46,9 @@ enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 EOF
 sudo yum makecache
-yum update
+yum -y update
 
-yum install -y -q zsh vim curl docker axel iftop nload
+yum install -y -q zsh vim curl docker axel iftop nload git
 
 yum install -y yum-utils \
            device-mapper-persistent-data \
@@ -59,7 +59,11 @@ sudo sh get-docker.sh --mirror Aliyun
 
 sudo groupadd docker
 sudo usermod -aG docker $USER
-
+cat > /etc/docker/daemon.json << EOF
+{
+  "registry-mirrors": ["https://docker.mirrors.ustc.edu.cn/"]
+}
+EOF
 systemctl start docker
 docker pull php
 docker pull node
@@ -81,7 +85,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(
   git docker
 )
-source \$ZSH/oh-my-zsh.sh]
+source \$ZSH/oh-my-zsh.sh
 EOF
 
 
