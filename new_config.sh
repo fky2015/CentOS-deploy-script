@@ -65,6 +65,7 @@ cat > /etc/docker/daemon.json << EOF
 }
 EOF
 systemctl start docker
+systemctl restart docker
 docker pull php
 docker pull node
 docker pull nginx
@@ -74,7 +75,7 @@ docker pull phpmyadmin/phpmyadmin
 docker pull kali-linux-docker
 
 
-
+# install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 cd ~ 
 cat > .zshrc << EOF
@@ -83,9 +84,14 @@ export ZSH=~/.oh-my-zsh
 ZSH_THEME="random"
 COMPLETION_WAITING_DOTS="true"
 plugins=(
-  git docker
+  git docker zsh-autosuggestion zsh-syntax-highlighting
 )
 source \$ZSH/oh-my-zsh.sh
 EOF
 
+# install zsh-autosuggestion
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# install zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+source ~/.zshrc
