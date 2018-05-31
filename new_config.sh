@@ -101,6 +101,11 @@ chsh -s /bin/zsh root
 yum install -y go
 go get -u github.com/jingweno/ccat
 
+# install dry-bin
+curl -sSf https://moncho.github.io/dry/dryup.sh | sudo sh
+sudo chmod 755 /usr/local/bin/dry
+
+
 zsh
 
 
