@@ -87,6 +87,8 @@ plugins=(
   git docker zsh-autosuggestions zsh-syntax-highlighting
 )
 source \$ZSH/oh-my-zsh.sh
+
+export PATH=$PATH:$(go env GOPATH)/bin
 EOF
 
 # install zsh-autosuggestion
@@ -95,5 +97,12 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 chsh -s /bin/zsh root
+
+yum install -y go
+go get -u github.com/jingweno/ccat
+
 zsh
+
+
+
 source ~/.zshrc
