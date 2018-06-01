@@ -48,8 +48,8 @@ EOF
 sudo yum makecache
 yum -y update
 
-yum install -y -q zsh vim curl docker axel iftop nload git
-
+yum install -y -q zsh vim curl docker axel iftop nload git jq \
+  bridge-utils
 yum install -y yum-utils \
            device-mapper-persistent-data \
            lvm2
