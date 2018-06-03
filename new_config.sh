@@ -84,7 +84,7 @@ export ZSH=~/.oh-my-zsh
 ZSH_THEME="random"
 COMPLETION_WAITING_DOTS="true"
 plugins=(
-  git docker zsh-autosuggestions zsh-syntax-highlighting
+  git docker zsh-autosuggestions zsh-syntax-highlighting docker-machine sudo
 )
 source \$ZSH/oh-my-zsh.sh
 
@@ -95,6 +95,9 @@ EOF
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # install zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+# install docker-machine
+git clone https://github.com/leonhartX/docker-machine-zsh-completion.git ~/.oh-my-zsh/custom/plugins/docker-machine
 
 chsh -s /bin/zsh root
 
