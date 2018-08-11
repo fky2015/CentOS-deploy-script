@@ -96,20 +96,22 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 # install zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
+# copy .zshrc to ~/
+cp ./zshrc-config ~/.zshrc
+
 # install docker-machine
 git clone https://github.com/leonhartX/docker-machine-zsh-completion.git ~/.oh-my-zsh/custom/plugins/docker-machine
 
+# change default shell
 chsh -s /bin/zsh root
 
+# install go
 yum install -y go
 go get -u github.com/jingweno/ccat
 
 # install dry-bin
 curl -sSf https://moncho.github.io/dry/dryup.sh | sudo sh
 sudo chmod 755 /usr/local/bin/dry
-
-
-zsh
 
 
 

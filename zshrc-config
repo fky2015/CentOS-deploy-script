@@ -1,0 +1,39 @@
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+export ZSH="/root/.oh-my-zsh"
+
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+# looking in ~/.oh-my-zsh/themes/
+# An empty array have no effect
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+COMPLETION_WAITING_DOTS="true"
+
+plugins=(
+  git docker-compose colorize sudo zsh-autosuggestions zsh-syntax-highlighting z
+)
+
+source $ZSH/oh-my-zsh.sh
+
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+#
+
+alias c=clear
+alias dose=docker-compose
+alias zshrc="vim ~/.zshrc"
+alias vimrc="vim ~/.vimrc"
+alias p="pwd"
+
