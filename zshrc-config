@@ -12,7 +12,7 @@ ZSH_THEME="robbyrussell"
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(
-  git docker-compose colorize sudo zsh-autosuggestions zsh-syntax-highlighting z
+  git docker-compose colorize sudo zsh-autosuggestions zsh-syntax-highlighting z extract
 )
 
 source $ZSH/oh-my-zsh.sh
