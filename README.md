@@ -1,6 +1,10 @@
 # 配置新的CentOS
 
 # todo
-[-] install docker-compose
-[-] fork before oh-my-zsh installed
+
+- [ ] install firewalld (new generation firewall)
+- [ ] config vim
+- [ ] install python3
+- [ ] install docker-compose
+- [ ] fork before oh-my-zsh installed
 
