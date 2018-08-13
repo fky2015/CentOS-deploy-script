@@ -4,7 +4,7 @@
 # install docker
 # install ---
 
-# 检查是否为root
+检查是否为root
 if [ ${USER}h != rooth ]
 then
 		echo "you are not root"
@@ -34,7 +34,7 @@ fi
 ## init args
 init_args(){
   # empty for now
-
+  echo ''
 }
 
 init_args 
