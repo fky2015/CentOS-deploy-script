@@ -34,6 +34,7 @@ fi
 ## init args
 init_args(){
   # empty for now
+  echo ""
   docker_on=0
   ohmyzsh_on=0
   ch_mod=0
@@ -229,12 +230,12 @@ install_go(){
 
 
 main(){
-  only_if ch_mod replace_source_ch "\n\nfor chinese user\n\n"
+  only_if $ch_mod replace_source_ch "\n\nfor chinese user\n\n"
   init
   install_basic
-  only_if docker_on install_docker "\n\ninstall docker\n\n"
-  only_if ohmyzsh_on install_ohmyzsh "\n\ninstall olmyzsh\n\n"
-  only_if go_on install_go "\n\ninstall go\n\n"
+  only_if $docker_on install_docker "\n\ninstall docker\n\n"
+  only_if $ohmyzsh_on install_ohmyzsh "\n\ninstall olmyzsh\n\n"
+  only_if $go_on install_go "\n\ninstall go\n\n"
 }
 
 
