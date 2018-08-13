@@ -34,7 +34,10 @@ fi
 ## init args
 init_args(){
   # empty for now
-  echo ''
+  docker_on=0
+  ohmyzsh_on=0
+  ch_mod=0
+  go_on=0
 }
 
 init_args 
@@ -50,6 +53,7 @@ do
 			;;
         h)
         print_help
+        exit 0
         ;;
         a)
         ch_mod=1
@@ -230,7 +234,7 @@ main(){
   install_basic
   only_if docker_on install_docker "\n\ninstall docker\n\n"
   only_if ohmyzsh_on install_ohmyzsh "\n\ninstall olmyzsh\n\n"
-  ohly_if go_on install_go "\n\ninstall go\n\n"
+  only_if go_on install_go "\n\ninstall go\n\n"
 }
 
 
