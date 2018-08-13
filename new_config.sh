@@ -174,11 +174,12 @@ EOF
 
 install_docker(){
   curl -fsSL https://get.docker.com/ | sh
+
   groupadd docker
   usermod -aG docker $USER
 
   only_if $ch_mod install_docker_ch "Change source for docker"
-
+  sed -i 's/enforcing/disabled/' /etc/selinux/config  
   systemctl start docker
   systemctl restart docker
   docker pull php
