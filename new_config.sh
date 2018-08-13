@@ -4,7 +4,7 @@
 # install docker
 # install ---
 
-检查是否为root
+#检查是否为root
 if [ ${USER}h != rooth ]
 then
 		echo "you are not root"
@@ -103,6 +103,9 @@ only_if(){
 
 
 replace_source_ch(){
+
+# prerequest
+yum install -y autoload
 
 # backup
 mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.bak
