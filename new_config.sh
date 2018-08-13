@@ -209,7 +209,16 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 git clone https://github.com/leonhartX/docker-machine-zsh-completion.git ~/.oh-my-zsh/custom/plugins/docker-machine
 
 # copy .zshrc to ~/
+
+
+if [ -f "./zshrc-config" ]
+then
+  if [ -f "~/.zshrc" ]
+  then
+  mv ~/.zshrc ~/.zshrc.bak
+  fi
 cp ./zshrc-config ~/.zshrc
+fi
 
 # change default shell
 chsh -s /bin/zsh root
