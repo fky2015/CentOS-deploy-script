@@ -173,6 +173,12 @@ EOF
 }
 
 install_docker(){
+  echo ##########################################
+  echo #
+  echo #     start to install docker 
+  echo #
+  echo ##########################################
+
   curl -fsSL https://get.docker.com/ | sh
 
   groupadd docker
@@ -193,11 +199,19 @@ install_docker(){
   # install dry-bin
   curl -sSf https://moncho.github.io/dry/dryup.sh | sudo sh
   sudo chmod 755 /usr/local/bin/dry
+
+  
 }
 
 
 
 install_ohmyzsh(){
+  echo ##########################################
+  echo #
+  echo #     start to install oh-my-zsh 
+  echo #
+  echo ##########################################
+
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -230,6 +244,12 @@ source ~/.zshrc
 
 
 install_go(){
+  echo ##########################################
+  echo #
+  echo #     start to install go 
+  echo #
+  echo ##########################################
+
   # install go
   yum install -y go
   go get -u github.com/jingweno/ccat
