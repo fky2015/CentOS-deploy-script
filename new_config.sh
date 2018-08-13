@@ -173,7 +173,7 @@ EOF
 }
 
 install_docker(){
-  yum install -y docker
+  curl -fsSL https://get.docker.com/ | sh
   groupadd docker
   usermod -aG docker $USER
 
