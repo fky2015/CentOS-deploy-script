@@ -177,7 +177,7 @@ install_docker(){
   groupadd docker
   usermod -aG docker $USER
 
-  only_if ch_mod install_docker_ch "Change source for docker"
+  only_if $ch_mod install_docker_ch "Change source for docker"
 
   systemctl start docker
   systemctl restart docker
