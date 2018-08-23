@@ -20,6 +20,7 @@ print_help(){
   echo -e "  \t\t-d  activate docker installation"
   echo -e "  \t\t-z  activate oh-my-zsh installation"
   echo -e "  \t\t-a  activate all with chinese mod"
+  echo -e "  \t\t-p  activate python3.6 installation"
   echo -e "  \t\t-g  activate golang installation"
   echo -e "  \t\t-b  activate all but not in chinese mod"
   echo -e "  \t\t-h  print this help"
@@ -39,6 +40,7 @@ init_args(){
   ohmyzsh_on=0
   ch_mod=0
   go_on=0
+  python36_on=0
 }
 
 init_args 
@@ -72,6 +74,9 @@ do
         ;;
         z)
         ohmyzsh_on=1
+        ;;
+        p)
+        python36_on=1
         ;;
         d)
         docker_on=1
@@ -218,7 +223,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 # install zsh-autosuggestion
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 # install zsh-syntax-highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zdharma/fast-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
 
 # install docker-machine for oh-my-zsh plugins
 git clone https://github.com/leonhartX/docker-machine-zsh-completion.git ~/.oh-my-zsh/custom/plugins/docker-machine
@@ -256,7 +261,15 @@ install_go(){
 }
 
 
+install_python36(){
+  echo ##########################################
+  echo #
+  echo #     start to install python3.6 
+  echo #
+  echo ##########################################
 
+  yum install -y python36
+}
 
 
 
@@ -269,6 +282,7 @@ main(){
   only_if $docker_on install_docker "\n\ninstall docker\n\n"
   only_if $ohmyzsh_on install_ohmyzsh "\n\ninstall olmyzsh\n\n"
   only_if $go_on install_go "\n\ninstall go\n\n"
+  only_if $python36_on install_python36 "\n\ninstall python3.6\n\n"
 }
 
 

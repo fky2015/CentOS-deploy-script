@@ -12,7 +12,7 @@ ZSH_THEME="robbyrussell"
 COMPLETION_WAITING_DOTS="true"
 
 plugins=(
-  git docker-compose colorize sudo zsh-autosuggestions zsh-syntax-highlighting z extract
+  git docker-compose colorize sudo zsh-autosuggestions fast-syntax-highlighting z extract
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -36,4 +36,6 @@ alias dose=docker-compose
 alias zshrc="vim ~/.zshrc"
 alias vimrc="vim ~/.vimrc"
 alias p="pwd"
+alias python3="python36"
+alias pip3="pip3.6"
 
