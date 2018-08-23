@@ -47,7 +47,7 @@ init_args
 
 
 
-while getopts "abcdghz" arg #选项后面的冒号表示该选项需要参数
+while getopts "abcdghpz" arg #选项后面的冒号表示该选项需要参数
 do
     case $arg in
         c)
@@ -63,11 +63,13 @@ do
         docker_on=1
         ohmyzsh_on=1
         go_on=1
+        python36_on=1
         ;;
         b)
         docker_on=1
         ohmyzsh_on=1
         go_on=1
+        python36_on=1
         ;;
         g)
         go_on=1
@@ -160,12 +162,14 @@ init(){
 }
 
 install_basic(){
-  yum install -y -q zsh vim curl vim-enhanced axel iftop htop nload git jq bridge-utils
+  yum install -y -q zsh vim curl vim-enhanced axel iftop htop nload git jq bridge-utils wget
 
   yum install -y yum-utils \
            device-mapper-persistent-data \
            lvm2
 
+  yum install -y epel-release
+  yum install --enablerepo=epel python2-pip -y
 }
 
 
