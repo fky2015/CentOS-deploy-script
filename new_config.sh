@@ -272,7 +272,8 @@ install_python36(){
   echo #
   echo ##########################################
 
-  yum install -y python36
+  yum install --enablerepo=epel -y python36 python36-setuptools
+  easy_install-3.6 pip
 }
 
 
