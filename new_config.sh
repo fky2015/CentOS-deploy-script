@@ -22,6 +22,7 @@ print_help(){
   echo -e "  \t\t-a  activate all with chinese mod"
   echo -e "  \t\t-p  activate python3.6 installation"
   echo -e "  \t\t-g  activate golang installation"
+  echo -e "  \t\t-v  activate vim-config installation"
   echo -e "  \t\t-b  activate all but not in chinese mod"
   echo -e "  \t\t-h  print this help"
 }
@@ -41,13 +42,14 @@ init_args(){
   ch_mod=0
   go_on=0
   python36_on=0
+  vim_config_on=0
 }
 
 init_args 
 
 
 
-while getopts "abcdghpz" arg #选项后面的冒号表示该选项需要参数
+while getopts "abcdghpvz" arg #选项后面的冒号表示该选项需要参数
 do
     case $arg in
         c)
@@ -64,15 +66,20 @@ do
         ohmyzsh_on=1
         go_on=1
         python36_on=1
+        vim_config_on=1
         ;;
         b)
         docker_on=1
         ohmyzsh_on=1
         go_on=1
         python36_on=1
+        vim_config_on=1
         ;;
         g)
         go_on=1
+        ;;
+        v)
+        vim_config_on=1
         ;;
         z)
         ohmyzsh_on=1
@@ -276,7 +283,22 @@ install_python36(){
   easy_install-3.6 pip
 }
 
+install_vim_config(){
+  echo ##########################################
+  echo #
+  echo #     start to install vim_config 
+  echo #
+  echo ##########################################
 
+  curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+  echo ##########################################
+  echo #
+  echo #     Then you should past your custom vimrc
+  echo #
+  echo ##########################################
+}
 
 
 
@@ -288,6 +310,7 @@ main(){
   only_if $ohmyzsh_on install_ohmyzsh "\n\ninstall olmyzsh\n\n"
   only_if $go_on install_go "\n\ninstall go\n\n"
   only_if $python36_on install_python36 "\n\ninstall python3.6\n\n"
+  only_if $vim_config_on install_vim_config "\n\ninstall vim_config\n\n"
 }
 
 
