@@ -216,6 +216,7 @@ install_docker(){
   curl -sSf https://moncho.github.io/dry/dryup.sh | sudo sh
   sudo chmod 755 /usr/local/bin/dry
 
+ 
   
 }
 
@@ -271,6 +272,10 @@ install_go(){
   go get -u github.com/jingweno/ccat
 }
 
+install_docker_compose(){
+  # require pip
+  pip install docker-dompose
+}
 
 install_python36(){
   echo ##########################################
@@ -281,6 +286,8 @@ install_python36(){
 
   yum install --enablerepo=epel -y python36 python36-setuptools
   easy_install-3.6 pip
+
+  only_if $docker_on install_docker_compose "\n\ninstall docker-compose\n\n"
 }
 
 install_vim_config(){
